@@ -28,7 +28,7 @@ public class FirstRecurring {
         testString = keyboard.nextLine();
        
         startTime = System.nanoTime();
-        //firstRecurringNiave(testString);
+        firstRecurringNiave(testString);
         endTime = System.nanoTime();
         totalTimeNiave = endTime - startTime;
         System.out.println("The niave method took " + totalTimeNiave
@@ -52,6 +52,27 @@ public class FirstRecurring {
         {
             System.out.println("The first method was better by "
                                 + (totalTimeBetter - totalTimeNiave));
+        }
+    }
+
+    private static void firstRecurringNiave(String string) {
+        
+        char charChecked;
+        
+        // loop through string
+        for(int i = 0; i < string.length(); i++)
+        {
+           charChecked = string.charAt(i);
+           
+           for(int j = i + 1; j < string.length(); j++)
+           {
+               if(charChecked == string.charAt(j))
+               {
+                   System.out.println(string.charAt(j) 
+                           + " is the first recurring character");
+                   return;
+               }
+           }
         }
     }
     
