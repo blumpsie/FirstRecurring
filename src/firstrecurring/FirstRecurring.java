@@ -5,6 +5,7 @@
 
 package firstrecurring;
 
+import java.util.HashSet;
 import java.util.Scanner;
 
 /**
@@ -36,10 +37,10 @@ public class FirstRecurring {
         
         
         startTime = System.nanoTime();
-        //firstRecurringBetter(testString);
+        firstRecurringBetter(testString);
         endTime = System.nanoTime();
         totalTimeBetter = endTime - startTime;
-        System.out.println("The niave method took " + totalTimeBetter
+        System.out.println("The better method took " + totalTimeBetter
                             + " nanoseconds");
         
         // Report which is better and by how much
@@ -55,6 +56,8 @@ public class FirstRecurring {
         }
     }
 
+    // Takes in na string and finds the first recurring character
+    // by using a two for loops.
     private static void firstRecurringNiave(String string) {
         
         char charChecked;
@@ -68,6 +71,7 @@ public class FirstRecurring {
            {
                if(charChecked == string.charAt(j))
                {
+                   System.out.println("Niave Method:");
                    System.out.println(string.charAt(j) 
                            + " is the first recurring character");
                    return;
@@ -76,4 +80,27 @@ public class FirstRecurring {
         }
     }
     
+    
+    // Takes in a string and finds the firt recurring character
+    // by using a hash set and a for loop.
+    private static void firstRecurringBetter(String string)
+    {
+        HashSet charSet = new HashSet();
+        
+        for (int i = 0; i < string.length(); i++)
+        {
+            if(!charSet.contains(i))
+            {
+                charSet.add(i);
+            }
+            
+            if(charSet.contains(i))
+            {
+                System.out.println("Better Method:");
+                System.out.println(string.charAt(i) 
+                           + " is the first recurring character");
+                return;
+            }
+        }
+    }
 }
