@@ -46,12 +46,12 @@ public class FirstRecurring {
         // Report which is better and by how much
         if (totalTimeBetter < totalTimeNiave)
         {
-            System.out.println("The second method was better by "
+            System.out.println("The second method was faster by "
                                 + (totalTimeNiave - totalTimeBetter));
         }
         else
         {
-            System.out.println("The first method was better by "
+            System.out.println("The first method was faster by "
                                 + (totalTimeBetter - totalTimeNiave));
         }
     }
@@ -89,17 +89,17 @@ public class FirstRecurring {
         
         for (int i = 0; i < string.length(); i++)
         {
-            if(!charSet.contains(i))
-            {
-                charSet.add(i);
-            }
-            
-            if(charSet.contains(i))
+            if(charSet.contains(string.charAt(i)))
             {
                 System.out.println("Better Method:");
                 System.out.println(string.charAt(i) 
                            + " is the first recurring character");
                 return;
+                
+            }
+            else
+            {
+                charSet.add(string.charAt(i));
             }
         }
     }
